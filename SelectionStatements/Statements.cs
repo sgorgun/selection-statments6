@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SelectionStatments
+﻿namespace SelectionStatments
 {
     public static class Statements
     {
@@ -12,10 +10,28 @@ namespace SelectionStatments
         /// <param name="third">Third number.</param>
         public static void WriteLargestWithNestedIfElse(int first, int second, int third)
         {
-            // TODO #1: Add the method implementation. Restrictions:
+            // TASK #1: Add the method implementation. Restrictions:
             // - the method can only use the nested if...else statements;
             // - the method cannot use additional variables.
-            throw new NotImplementedException();
+            if (first > second)
+            {
+                if (first > third)
+                {
+                    Console.WriteLine($"Number {first} is the largest");
+                }
+                else
+                {
+                    Console.WriteLine($"Number {third} is the largest");
+                }
+            }
+            else if (second > third)
+            {
+                Console.WriteLine($"Number {second} is the largest");
+            }
+            else
+            {
+                Console.WriteLine($"Number {third} is the largest");
+            }
         }
 
         /// <summary>
@@ -26,10 +42,17 @@ namespace SelectionStatments
         /// <param name="third">Third number.</param>
         public static void WriteLargestWithIfElseAndTernaryOperator(int first, int second, int third)
         {
-            // TODO #2: Add the method implementation. Restrictions:
+            // TASK #2: Add the method implementation. Restrictions:
             // - the method can only use the if...else statement and ?: ternary operators;
             // - the method cannot use additional variables.
-            throw new NotImplementedException();
+            if (first > second)
+            {
+                Console.WriteLine($"Number {(first > third ? first : third)} is the largest");
+            }
+            else
+            {
+                Console.WriteLine($"Number {(second > third ? second : third)} is the largest");
+            }
         }
 
         /// <summary>
@@ -40,10 +63,21 @@ namespace SelectionStatments
         /// <param name="third">Third number.</param>
         public static void WriteLargestWithIfElseAndConditionLogicalOperators(int first, int second, int third)
         {
-            // TODO #3: Add the method implementation. Restrictions:
+            // TASK #3: Add the method implementation. Restrictions:
             // - the method can only use the if...else statement and conditional logical operators;
             // - the method cannot use additional variables.
-            throw new NotImplementedException();
+            if (first > second && first > third)
+            {
+                Console.WriteLine($"Number {first} is the largest");
+            }
+            else if (second > first && second > third)
+            {
+                Console.WriteLine($"Number {second} is the largest");
+            }
+            else
+            {
+                Console.WriteLine($"Number {third} is the largest");
+            }
         }
 
         /// <summary>
@@ -56,8 +90,23 @@ namespace SelectionStatments
         /// <param name="userAge">User's age is more or equals zero.</param>
         public static void HowOldAreYouReactionWithCascadedIfElse(int userAge)
         {
-            // TODO #4: Add the method implementation. Restrictions: the method can only use the cascaded if...else statement.
-            throw new NotImplementedException();
+            // TASK #4: Add the method implementation. Restrictions: the method can only use the cascaded if...else statement.
+            if (userAge >= 65)
+            {
+                Console.WriteLine("Enjoy your retirement!");
+            }
+            else if (userAge >= 21)
+            {
+                Console.WriteLine("Fancy an alcoholic beverage?");
+            }
+            else if (userAge >= 18)
+            {
+                Console.WriteLine("You're old enough to drive.");
+            }
+            else
+            {
+                Console.WriteLine("You are too young to drive, drink, or retire.");
+            }
         }
 
         /// <summary>
@@ -72,8 +121,31 @@ namespace SelectionStatments
         /// <param name="countOfDailyDownloads">Count of daily downloads more or equals zero.</param>
         public static void WriteInformationAboutDailyDownloadsWithCascadedIfElse(int countOfDailyDownloads)
         {
-            // TODO #5: Add the method implementation. Restrictions: the method can only use the cascaded if...else statement.
-            throw new NotImplementedException();
+            // TASK #5: Add the method implementation. Restrictions: the method can only use the cascaded if...else statement.
+            if (countOfDailyDownloads <= 0)
+            {
+                Console.WriteLine("No downloads.");
+            }
+            else if (countOfDailyDownloads < 100)
+            {
+                Console.WriteLine("Daily downloads: 1-100.");
+            }
+            else if (countOfDailyDownloads < 1000)
+            {
+                Console.WriteLine("Daily downloads: 100-1,000.");
+            }
+            else if (countOfDailyDownloads < 10000)
+            {
+                Console.WriteLine("Daily downloads: 1,000-10,000.");
+            }
+            else if (countOfDailyDownloads < 100000)
+            {
+                Console.WriteLine("Daily downloads: 10,000-100,000.");
+            }
+            else
+            {
+                Console.WriteLine("Daily downloads: 100,000+.");
+            }
         }
 
         /// <summary>
@@ -86,8 +158,27 @@ namespace SelectionStatments
         /// <param name="dayOfWeek">Day of week.</param>
         public static void WriteTheInformationAboutDayWithIfElse(DayOfWeek dayOfWeek)
         {
-            // TODO #6: Add the method implementation. Restriction: the method can only use the cascaded if...else statement and conditional logical operators.
-            throw new NotImplementedException();
+            // TASK #6: Add the method implementation. Restriction: the method can only use the cascaded if...else statement and conditional logical operators.
+            if (dayOfWeek == DayOfWeek.Monday)
+            {
+                Console.WriteLine("The first day of the work week.");
+            }
+            else if (dayOfWeek == DayOfWeek.Friday)
+            {
+                Console.WriteLine("The last day of the work week.");
+            }
+            else if (dayOfWeek == DayOfWeek.Saturday)
+            {
+                Console.WriteLine("The weekend.");
+            }
+            else if (dayOfWeek == DayOfWeek.Sunday)
+            {
+                Console.WriteLine("The weekend.");
+            }
+            else
+            {
+                Console.WriteLine("The middle of the work week.");
+            }
         }
 
         /// <summary>
@@ -100,8 +191,26 @@ namespace SelectionStatments
         /// <param name="dayOfWeek">Day of week.</param>
         public static void WriteTheInformationAboutDayWithSwitchStatement(DayOfWeek dayOfWeek)
         {
-            // TODO #7: Add the method implementation. Restriction: the method can only use the switch statement.
-            throw new NotImplementedException();
+            // TASK #7: Add the method implementation. Restriction: the method can only use the switch statement.
+            switch (dayOfWeek)
+            {
+                case DayOfWeek.Saturday:
+                case DayOfWeek.Sunday:
+                    Console.WriteLine("The weekend.");
+                    break;
+
+                case DayOfWeek.Monday:
+                    Console.WriteLine("The first day of the work week.");
+                    break;
+
+                case DayOfWeek.Friday:
+                    Console.WriteLine("The last day of the work week.");
+                    break;
+
+                default:
+                    Console.WriteLine("The middle of the work week.");
+                    break;
+            }
         }
 
         /// <summary>
@@ -120,9 +229,20 @@ namespace SelectionStatments
         /// <returns>The message with information about the type of integer.</returns>
         public static string GetTypeOfIntegerWithCascadedIfElse(object arg)
         {
-            // TODO #8: Add the method implementation. Restrictions: the method can only use the cascaded if...else statement.
+            // TASK #8: Add the method implementation. Restrictions: the method can only use the cascaded if...else statement.
             // Use Pattern matching https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/functional/pattern-matching
-            throw new NotImplementedException();
+            return arg switch
+            {
+                sbyte _ => $"{arg} is sbyte.",
+                byte _ => $"{arg} is byte.",
+                short _ => $"{arg} is short.",
+                int _ => $"{arg} is int.",
+                long _ => $"{arg} is long.",
+                ushort _ => $"{arg} is ushort.",
+                uint _ => $"{arg} is uint.",
+                ulong _ => $"{arg} is ulong.",
+                _ => $"{arg} is not integer.",
+            };
         }
 
         /// <summary>
@@ -141,9 +261,37 @@ namespace SelectionStatments
         /// <returns>The message with information about the type of integer.</returns>
         public static string GetTypeOfIntegerWithSwitchStatement(object arg)
         {
-            // TODO #9: Add the method implementation. Restrictions: the method can only use the switch statement.
+            // TASK #9: Add the method implementation. Restrictions: the method can only use the switch statement.
             // Use Pattern matching https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/functional/pattern-matching
-            throw new NotImplementedException();
+            switch (arg)
+            {
+                case sbyte _:
+                    return $"{arg} is sbyte.";
+
+                case byte _:
+                    return $"{arg} is byte.";
+
+                case short _:
+                    return $"{arg} is short.";
+
+                case int _:
+                    return $"{arg} is int.";
+
+                case long _:
+                    return $"{arg} is long.";
+
+                case ushort _:
+                    return $"{arg} is ushort.";
+
+                case uint _:
+                    return $"{arg} is uint.";
+
+                case ulong _:
+                    return $"{arg} is ulong.";
+
+                default:
+                    return $"{arg} is not integer.";
+            }
         }
 
         /// <summary>
@@ -162,9 +310,20 @@ namespace SelectionStatments
         /// <returns>The message with information about the type of integer.</returns>
         public static string GetTypeOfIntegerWithSwitchExpression(object arg)
         {
-            // TODO #10: Add the method implementation. Restrictions: the method can only use the switch expression.
+            // TASK #10: Add the method implementation. Restrictions: the method can only use the switch expression.
             // Use Pattern matching https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/functional/pattern-matching
-            throw new NotImplementedException();
+            return arg switch
+            {
+                sbyte _ => $"{arg} is sbyte.",
+                byte _ => $"{arg} is byte.",
+                short _ => $"{arg} is short.",
+                int _ => $"{arg} is int.",
+                long _ => $"{arg} is long.",
+                ushort _ => $"{arg} is ushort.",
+                uint _ => $"{arg} is uint.",
+                ulong _ => $"{arg} is ulong.",
+                _ => $"{arg} is not integer.",
+            };
         }
 
         /// <summary>
@@ -178,8 +337,37 @@ namespace SelectionStatments
         /// <param name="month">Source month.</param>
         public static void WriteTheInformationAboutSeasonsWithSwitchStatement(Month month)
         {
-            // TODO #11: Add the method implementation. Restrictions: the method can only use the switch statement.
-            throw new NotImplementedException();
+            // TASK #11: Add the method implementation. Restrictions: the method can only use the switch statement.
+            switch (month)
+            {
+                case Month.December:
+                case Month.January:
+                case Month.February:
+                    Console.WriteLine("It's winter now.");
+                    break;
+
+                case Month.March:
+                case Month.April:
+                case Month.May:
+                    Console.WriteLine("It's spring now.");
+                    break;
+
+                case Month.June:
+                case Month.July:
+                case Month.August:
+                    Console.WriteLine("It's summer now.");
+                    break;
+
+                case Month.September:
+                case Month.October:
+                case Month.November:
+                    Console.WriteLine("It's autumn now.");
+                    break;
+
+                default:
+                    Console.WriteLine("Sorry, the month was entered incorrectly.");
+                    break;
+            }
         }
 
         /// <summary>
@@ -189,9 +377,106 @@ namespace SelectionStatments
         /// <returns>The length of the number.</returns>
         public static byte GetLengthWithCascadedIfElse(int number)
         {
-            // TODO #12: Add the method implementation. Restriction: the method can only use the cascaded if...else statement and comparison operations.
+            // TASK #12: Add the method implementation. Restriction: the method can only use the cascaded if...else statement and comparison operations.
             // Don't use ToString() method, loops or decimal logarithm.
-            throw new NotImplementedException();
+            if (number >= 0)
+            {
+                if (number < 10)
+                {
+                    return 1;
+                }
+
+                if (number < 100)
+                {
+                    return 2;
+                }
+
+                if (number < 1000)
+                {
+                    return 3;
+                }
+
+                if (number < 10000)
+                {
+                    return 4;
+                }
+
+                if (number < 100000)
+                {
+                    return 5;
+                }
+
+                if (number < 1000000)
+                {
+                    return 6;
+                }
+
+                if (number < 10000000)
+                {
+                    return 7;
+                }
+
+                if (number < 100000000)
+                {
+                    return 8;
+                }
+
+                if (number < 1000000000)
+                {
+                    return 9;
+                }
+
+                return 10;
+            }
+            else
+            {
+                if (number > -10)
+                {
+                    return 1;
+                }
+
+                if (number > -100)
+                {
+                    return 2;
+                }
+
+                if (number > -1000)
+                {
+                    return 3;
+                }
+
+                if (number > -10000)
+                {
+                    return 4;
+                }
+
+                if (number > -100000)
+                {
+                    return 5;
+                }
+
+                if (number > -1000000)
+                {
+                    return 6;
+                }
+
+                if (number > -10000000)
+                {
+                    return 7;
+                }
+
+                if (number > -100000000)
+                {
+                    return 8;
+                }
+
+                if (number > -1000000000)
+                {
+                    return 9;
+                }
+
+                return 10;
+            }
         }
 
         /// <summary>
@@ -201,9 +486,106 @@ namespace SelectionStatments
         /// <returns>The length of the number.</returns>
         public static byte GetLengthWithSwitchExpression(int number)
         {
-            // TODO #13: Add the method implementation. Restriction: the method can only use the switch expression and comparison operations.
+            // TASK #13: Add the method implementation. Restriction: the method can only use the switch expression and comparison operations.
             // Don't use ToString() method, loops or decimal logarithm.
-            throw new NotImplementedException();
+            if (number >= 0)
+            {
+                if (number < 10)
+                {
+                    return 1;
+                }
+
+                if (number < 100)
+                {
+                    return 2;
+                }
+
+                if (number < 1000)
+                {
+                    return 3;
+                }
+
+                if (number < 10000)
+                {
+                    return 4;
+                }
+
+                if (number < 100000)
+                {
+                    return 5;
+                }
+
+                if (number < 1000000)
+                {
+                    return 6;
+                }
+
+                if (number < 10000000)
+                {
+                    return 7;
+                }
+
+                if (number < 100000000)
+                {
+                    return 8;
+                }
+
+                if (number < 1000000000)
+                {
+                    return 9;
+                }
+
+                return 10;
+            }
+            else
+            {
+                if (number > -10)
+                {
+                    return 1;
+                }
+
+                if (number > -100)
+                {
+                    return 2;
+                }
+
+                if (number > -1000)
+                {
+                    return 3;
+                }
+
+                if (number > -10000)
+                {
+                    return 4;
+                }
+
+                if (number > -100000)
+                {
+                    return 5;
+                }
+
+                if (number > -1000000)
+                {
+                    return 6;
+                }
+
+                if (number > -10000000)
+                {
+                    return 7;
+                }
+
+                if (number > -100000000)
+                {
+                    return 8;
+                }
+
+                if (number > -1000000000)
+                {
+                    return 9;
+                }
+
+                return 10;
+            }
         }
 
         /// <summary>
@@ -217,8 +599,71 @@ namespace SelectionStatments
         /// </returns>
         public static Month? GetMonthWithCascadedIfElse(int month)
         {
-            // TODO #14: Add the method implementation. Restriction: the method can only use the cascaded if...else statement.
-            throw new NotImplementedException();
+            // TASK #14: Add the method implementation. Restriction: the method can only use the cascaded if...else statement.
+            if (month > 0 && month <= 12)
+            {
+                if (month == 1)
+                {
+                    return Month.January;
+                }
+
+                if (month == 2)
+                {
+                    return Month.February;
+                }
+
+                if (month == 3)
+                {
+                    return Month.March;
+                }
+
+                if (month == 4)
+                {
+                    return Month.April;
+                }
+
+                if (month == 5)
+                {
+                    return Month.May;
+                }
+
+                if (month == 6)
+                {
+                    return Month.June;
+                }
+
+                if (month == 7)
+                {
+                    return Month.July;
+                }
+
+                if (month == 8)
+                {
+                    return Month.August;
+                }
+
+                if (month == 9)
+                {
+                    return Month.September;
+                }
+
+                if (month == 10)
+                {
+                    return Month.October;
+                }
+
+                if (month == 11)
+                {
+                    return Month.November;
+                }
+
+                if (month == 12)
+                {
+                    return Month.December;
+                }
+            }
+
+            return null;
         }
 
         /// <summary>
@@ -232,8 +677,23 @@ namespace SelectionStatments
         /// </returns>
         public static Month? GetMonthWithSwitchStatement(int month)
         {
-            // TODO #15: Add the method implementation. Restriction: the method can only use the switch statement.
-            throw new NotImplementedException();
+            // TASK #15: Add the method implementation. Restriction: the method can only use the switch statement.
+            switch (month)
+            {
+                case 1: return Month.January;
+                case 2: return Month.February;
+                case 3: return Month.March;
+                case 4: return Month.April;
+                case 5: return Month.May;
+                case 6: return Month.June;
+                case 7: return Month.July;
+                case 8: return Month.August;
+                case 9: return Month.September;
+                case 10: return Month.October;
+                case 11: return Month.November;
+                case 12: return Month.December;
+                default: return null;
+            }
         }
 
         /// <summary>
@@ -247,8 +707,23 @@ namespace SelectionStatments
         /// </returns>
         public static Month? GetMonthWithSwitchExpression(int month)
         {
-            // TODO #16: Add the method implementation. Restriction: the method can only use the switch expression.
-            throw new NotImplementedException();
+            // TASK #16: Add the method implementation. Restriction: the method can only use the switch expression.
+            return month switch
+            {
+                1 => (Month?)Month.January,
+                2 => (Month?)Month.February,
+                3 => (Month?)Month.March,
+                4 => (Month?)Month.April,
+                5 => (Month?)Month.May,
+                6 => (Month?)Month.June,
+                7 => (Month?)Month.July,
+                8 => (Month?)Month.August,
+                9 => (Month?)Month.September,
+                10 => (Month?)Month.October,
+                11 => (Month?)Month.November,
+                12 => (Month?)Month.December,
+                _ => null,
+            };
         }
     }
 }
