@@ -231,18 +231,46 @@
         {
             // TASK #8: Add the method implementation. Restrictions: the method can only use the cascaded if...else statement.
             // Use Pattern matching https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/functional/pattern-matching
-            return arg switch
+            string result;
+
+            if (arg is sbyte)
             {
-                sbyte _ => $"{arg} is sbyte.",
-                byte _ => $"{arg} is byte.",
-                short _ => $"{arg} is short.",
-                int _ => $"{arg} is int.",
-                long _ => $"{arg} is long.",
-                ushort _ => $"{arg} is ushort.",
-                uint _ => $"{arg} is uint.",
-                ulong _ => $"{arg} is ulong.",
-                _ => $"{arg} is not integer.",
-            };
+                result = $"{arg} is sbyte.";
+            }
+            else if (arg is byte)
+            {
+                result = $"{arg} is byte.";
+            }
+            else if (arg is short)
+            {
+                result = $"{arg} is short.";
+            }
+            else if (arg is int)
+            {
+                result = $"{arg} is int.";
+            }
+            else if (arg is long)
+            {
+                result = $"{arg} is long.";
+            }
+            else if (arg is ushort)
+            {
+                result = $"{arg} is ushort.";
+            }
+            else if (arg is uint)
+            {
+                result = $"{arg} is uint.";
+            }
+            else if (arg is ulong)
+            {
+                result = $"{arg} is ulong.";
+            }
+            else
+            {
+                result = $"{arg} is not integer.";
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -379,104 +407,57 @@
         {
             // TASK #12: Add the method implementation. Restriction: the method can only use the cascaded if...else statement and comparison operations.
             // Don't use ToString() method, loops or decimal logarithm.
-            if (number >= 0)
+            if (number > -10 && number < 10)
             {
-                if (number < 10)
-                {
-                    return 1;
-                }
+                return 1;
+            }
 
-                if (number < 100)
-                {
-                    return 2;
-                }
+            if (number > -100 && number < 100)
+            {
+                return 2;
+            }
 
-                if (number < 1000)
-                {
-                    return 3;
-                }
+            if (number > -1000 && number < 1000)
+            {
+                return 3;
+            }
 
-                if (number < 10000)
-                {
-                    return 4;
-                }
+            if (number > -10_000 && number < 10_000)
+            {
+                return 4;
+            }
 
-                if (number < 100000)
-                {
-                    return 5;
-                }
+            if (number > -100_000 && number < 100_000)
+            {
+                return 5;
+            }
 
-                if (number < 1000000)
-                {
-                    return 6;
-                }
+            if (number > -1_000_000 && number < 1_000_000)
+            {
+                return 6;
+            }
 
-                if (number < 10000000)
-                {
-                    return 7;
-                }
+            if (number > -10_000_000 && number < 10_000_000)
+            {
+                return 7;
+            }
 
-                if (number < 100000000)
-                {
-                    return 8;
-                }
+            if (number > -100_000_000 && number < 100_000_000)
+            {
+                return 8;
+            }
 
-                if (number < 1000000000)
-                {
-                    return 9;
-                }
+            if (number > -1_000_000_000 && number < 1_000_000_000)
+            {
+                return 9;
+            }
 
+            if (number >= int.MinValue && number <= int.MaxValue)
+            {
                 return 10;
             }
-            else
-            {
-                if (number > -10)
-                {
-                    return 1;
-                }
 
-                if (number > -100)
-                {
-                    return 2;
-                }
-
-                if (number > -1000)
-                {
-                    return 3;
-                }
-
-                if (number > -10000)
-                {
-                    return 4;
-                }
-
-                if (number > -100000)
-                {
-                    return 5;
-                }
-
-                if (number > -1000000)
-                {
-                    return 6;
-                }
-
-                if (number > -10000000)
-                {
-                    return 7;
-                }
-
-                if (number > -100000000)
-                {
-                    return 8;
-                }
-
-                if (number > -1000000000)
-                {
-                    return 9;
-                }
-
-                return 10;
-            }
+            return 0;
         }
 
         /// <summary>
@@ -488,104 +469,24 @@
         {
             // TASK #13: Add the method implementation. Restriction: the method can only use the switch expression and comparison operations.
             // Don't use ToString() method, loops or decimal logarithm.
-            if (number >= 0)
+            int result = number switch
             {
-                if (number < 10)
+                int.MinValue => 10,
+                _ => Math.Abs(number) switch
                 {
-                    return 1;
+                    < 10 => 1,
+                    < 100 => 2,
+                    < 1_000 => 3,
+                    < 10_000 => 4,
+                    < 100_000 => 5,
+                    < 1_000_000 => 6,
+                    < 10_000_000 => 7,
+                    < 100_000_000 => 8,
+                    < 1_000_000_000 => 9,
+                    _ => 10,
                 }
-
-                if (number < 100)
-                {
-                    return 2;
-                }
-
-                if (number < 1000)
-                {
-                    return 3;
-                }
-
-                if (number < 10000)
-                {
-                    return 4;
-                }
-
-                if (number < 100000)
-                {
-                    return 5;
-                }
-
-                if (number < 1000000)
-                {
-                    return 6;
-                }
-
-                if (number < 10000000)
-                {
-                    return 7;
-                }
-
-                if (number < 100000000)
-                {
-                    return 8;
-                }
-
-                if (number < 1000000000)
-                {
-                    return 9;
-                }
-
-                return 10;
-            }
-            else
-            {
-                if (number > -10)
-                {
-                    return 1;
-                }
-
-                if (number > -100)
-                {
-                    return 2;
-                }
-
-                if (number > -1000)
-                {
-                    return 3;
-                }
-
-                if (number > -10000)
-                {
-                    return 4;
-                }
-
-                if (number > -100000)
-                {
-                    return 5;
-                }
-
-                if (number > -1000000)
-                {
-                    return 6;
-                }
-
-                if (number > -10000000)
-                {
-                    return 7;
-                }
-
-                if (number > -100000000)
-                {
-                    return 8;
-                }
-
-                if (number > -1000000000)
-                {
-                    return 9;
-                }
-
-                return 10;
-            }
+            };
+            return (byte)result;
         }
 
         /// <summary>
